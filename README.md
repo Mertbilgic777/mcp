@@ -40,4 +40,4 @@ Problem MCP’nin Çözümü Her entegrasyon için özel “LLM wrapper” yazma
 ![MCP Mimarisi](docs/img/2.png)
 
 ### 7 . Örnek Çıktı
-![Örnek Çıktı](docs/img/1.png)
+![Örnek Çıktı](docs/img/ezgif-6152f0bec0eb9b.gif)
