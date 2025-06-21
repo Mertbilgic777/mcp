@@ -12,7 +12,7 @@ if not FILE.exists():
     FILE.write_text("Bu bir test notudur.\n2023 yılında yazıldı.\n", **UTF8)
 
 
-openai.api_key = "" 
+openai.api_key = ""  # ← OpenAI API key
 
 app = FastMCP("editor")
 
@@ -33,9 +33,14 @@ async def apply_edit(prompt: str):
     user_input = prompt.strip()
 
     system_prompt = (
-        "Aşağıdaki metni kullanıcı komutuna göre düzenle. "
-        "Sadece düzenlenmiş metnin tamamını döndür:\n\nMETİN:\n" + old
-    )
+    "Sen profesyonel bir metin düzenleyici yapay zekasısın.\n"
+    "Aşağıda düzenlenecek olan metin ve kullanıcıdan gelen düzenleme komutu verilmiştir.\n"
+    "Komutun anlamına göre METNİ yeniden yaz. Sadece düzenlenmiş metni döndür.Verdiğin cevabı yazma\n"
+    "Açıklama, yorum veya komut tekrarları yazma.\n\n"
+    f"\n{old}\n\n"
+    
+)
+
 
     try:
         response = openai.ChatCompletion.create(
